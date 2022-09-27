@@ -49,12 +49,10 @@ let check = () => {
     combinations.forEach(combination => {
         if (combination.every(index => moves[PLAYER1].indexOf(index) > -1)) {
             winner = alert('Wygrywa: Gracz O');
-            run = false
             location.reload();
         }
         if (combination.every(index => moves[PLAYER2].indexOf(index) > -1)) {
             winner = alert('Wygrywa: Gracz X ');
-            run = false
             location.reload();
         }
     });
