@@ -15,7 +15,7 @@ const combinations = [
 
 
 
-function pick(event) {
+let pick = (event) => {
     const { row, column } = event.target.dataset;
     const turn = round % 2 === 0 ? PLAYER2 : PLAYER1;
     if (board[row][column] !== '') return;
@@ -38,7 +38,7 @@ function pick(event) {
 const boxes = [...document.querySelectorAll('.box')];
 boxes.forEach(box => box.addEventListener('click', pick));
 
-function check() {
+let check = () => {
     const result = board.reduce((total, row) => total.concat(row));
     let winner = null;
     let moves = {
