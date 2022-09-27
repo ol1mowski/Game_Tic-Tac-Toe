@@ -1,6 +1,7 @@
 const PLAYER1 = 'fa-circle-o';
 const PLAYER2 = 'fa-times';
 let round = 1;
+let i = 1;
 const board = [
     ['', '', ''],
     ['', '', ''],
@@ -18,6 +19,7 @@ let pick = (event) => {
     if (board[row][column] !== '') return;
     console.log(turn)
     if (turn == "fa-circle-o"){
+        i++;
         const place = document.querySelector('.board');
         place.addEventListener('click', () => {
         document.getElementById('string').innerHTML = "Kolej gracza X";})
@@ -25,12 +27,27 @@ let pick = (event) => {
         const place = document.querySelector('.board');
         place.addEventListener('click', () => {
         document.getElementById('string').innerHTML = "Kolej gracza O";})
+        i++;
     }
     event.target.classList.add(turn);
     board[row][column] = turn;
     round++;
     console.log(check());
 }
+
+let clikc_counter = () => {
+    let side = document.querySelector('.board');
+    console.log(side)
+    side.addEventListener('click', () => {
+        if (i == 10) {
+            alert('Remis nikt nie wygrał!')
+            location.reload();
+        }
+        
+    });
+};
+
+clikc_counter();
 
 const boxes = [...document.querySelectorAll('.box')];
 boxes.forEach(box => box.addEventListener('click', pick));
