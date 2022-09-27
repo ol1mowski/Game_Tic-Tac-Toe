@@ -35,9 +35,17 @@ body {
     background: #000;
 }
 
+@media screen and (max-width: 1050px) {
+    #string {
+        width: 50vw;
+        height: 30vh;
+    }
+}
+
 @media screen and (max-width: 800px) {
     #string {
         width: 40vw;
+        height: 30vh;
     }
 }
 
@@ -49,6 +57,17 @@ body {
 
 @media screen and (max-width: 500px) {
         #string {
-            width: 50vw;
+            height: 40vh;
+            width: 55vw;
+            flex-wrap: wrap;
         }
+}
+
+@media screen and (max-width: 350px) {
+    #string {
+        height: 40vh;
+        width: 55vw;
+        flex-wrap: wrap;
+        font-size: 24px;
+    }
 }
