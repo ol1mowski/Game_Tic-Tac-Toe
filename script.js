@@ -12,8 +12,6 @@ const combinations = [
     [0,4,8], [2,4,6]
 ];
 
-
-
 let pick = (event) => {
     const { row, column } = event.target.dataset;
     const turn = round % 2 === 0 ? PLAYER2 : PLAYER1;
@@ -55,6 +53,4 @@ let check = () => {
             location.reload();
         }
     });
-
-    return winner;
 }
