@@ -1,6 +1,7 @@
 const PLAYER1 = 'fa-circle-o';
 const PLAYER2 = 'fa-times';
 let round = 1;
+let win = false;
 let i = 1;
 const board = [
     ['', '', ''],
@@ -39,7 +40,7 @@ let clikc_counter = () => {
     let side = document.querySelector('.board');
     console.log(side)
     side.addEventListener('click', () => {
-        if (i == 10) {
+        if (i == 10 && win == false) {
             alert('Remis nikt nie wygrał!')
             location.reload();
         }
@@ -64,10 +65,40 @@ let check = () => {
         if (combination.every(index => moves[PLAYER1].indexOf(index) > -1)) {
             winner = alert('Wygrywa: Gracz O');
             location.reload();
+            win = true;
         }
         if (combination.every(index => moves[PLAYER2].indexOf(index) > -1)) {
             winner = alert('Wygrywa: Gracz X ');
             location.reload();
+            win = true;
         }
     });
+}
+
+//Dark Mode
+
+const swichMode = document.querySelector('button');
+let theme = localStorage.getItem('theme');
+
+swichMode.addEventListener('click', () => {
+    if (theme == 'dark') {
+        document.querySelector('body').classList.remove('dark');
+        document.querySelector('body').classList.add('light');
+        theme = 'light';
+    }else {
+        document.querySelector('body').classList.remove('light');
+        document.querySelector('body').classList.add('dark');
+        theme = 'dark';
+    }
+    localStorage.setItem('theme', theme);
+});
+
+if (theme == 'dark') {
+    document.querySelector('body').classList.add('light');
+    theme = 'light';
+}
+
+if (theme == 'light') {
+    document.querySelector('body').classList.add('dark');
+    theme = 'dark';
 }
