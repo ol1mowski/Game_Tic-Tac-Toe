@@ -100,7 +100,7 @@ body.dark .icon {
 
 @media screen and (max-width: 1440px) {
     #string {
-        margin-top: 20%;
+        margin-top: 15%;
         width: 30vw;
         height: 15vh;
     }
