@@ -1,5 +1,6 @@
 const PLAYER1 = 'fa-circle-o';
 const PLAYER2 = 'fa-times';
+let start_game = new Date().getTime();
 let round = 1;
 let win = false;
 let i = 1;
@@ -63,12 +64,16 @@ let check = () => {
     result.forEach((field, index) => moves[field] ? moves[field].push(index) : null);
     combinations.forEach(combination => {
         if (combination.every(index => moves[PLAYER1].indexOf(index) > -1)) {
-            winner = alert('Wygrywa: Gracz O');
+            let end_game = new Date().getTime();
+            const gameTime = (end_game - start_game) / 1000;
+            winner = alert(`Wygrywa gracz O w czasie ${gameTime} sekund`);
             location.reload();
             win = true;
         }
         if (combination.every(index => moves[PLAYER2].indexOf(index) > -1)) {
-            winner = alert('Wygrywa: Gracz X ');
+            let end_game = new Date().getTime();
+            const gameTime = (end_game - start_game) / 1000;
+            winner = alert(`Wygrywa gracz X w czasie ${gameTime} sekund`)
             location.reload();
             win = true;
         }
